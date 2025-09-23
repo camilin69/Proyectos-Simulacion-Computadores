@@ -24,16 +24,16 @@ namespace taller_2_simulacion_movimiento_parabolico
             set { AreaSpawnPanel.Size = value; }
         }
 
-        public Point RubyLocation
+        public Point BulletLocation
         {
-            get { return RubyPictureBox.Location; }
-            set { RubyPictureBox.Location = value; }
+            get { return BulletPictureBox.Location; }
+            set { BulletPictureBox.Location = value; }
         }
 
-        public Size RubySize
+        public Size BulletSize
         {
-            get { return RubyPictureBox.Size; }
-            set { RubyPictureBox.Size = value; }
+            get { return BulletPictureBox.Size; }
+            set { BulletPictureBox.Size = value; }
         }
 
         public Point Slingshot1Location

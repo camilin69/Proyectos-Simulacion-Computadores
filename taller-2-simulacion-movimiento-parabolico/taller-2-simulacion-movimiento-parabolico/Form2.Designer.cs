@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.Slingshot1PictureBox = new System.Windows.Forms.PictureBox();
-            this.RubyPictureBox = new System.Windows.Forms.PictureBox();
+            this.BulletPictureBox = new System.Windows.Forms.PictureBox();
             this.GroundPictureBox = new System.Windows.Forms.PictureBox();
             this.Tree1PictureBox = new System.Windows.Forms.PictureBox();
             this.Tree2PictureBox = new System.Windows.Forms.PictureBox();
@@ -38,7 +38,7 @@
             this.Slingshot2PictureBox = new System.Windows.Forms.PictureBox();
             this.AreaSpawnPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Slingshot1PictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RubyPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BulletPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroundPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tree1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tree2PictureBox)).BeginInit();
@@ -50,7 +50,7 @@
             // 
             this.Slingshot1PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Slingshot1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Slingshot1PictureBox.Image")));
-            this.Slingshot1PictureBox.Location = new System.Drawing.Point(77, 432);
+            this.Slingshot1PictureBox.Location = new System.Drawing.Point(77, 411);
             this.Slingshot1PictureBox.Name = "Slingshot1PictureBox";
             this.Slingshot1PictureBox.Size = new System.Drawing.Size(145, 217);
             this.Slingshot1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -58,17 +58,17 @@
             this.Slingshot1PictureBox.TabStop = false;
             this.Slingshot1PictureBox.Visible = false;
             // 
-            // RubyPictureBox
+            // BulletPictureBox
             // 
-            this.RubyPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.RubyPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("RubyPictureBox.Image")));
-            this.RubyPictureBox.Location = new System.Drawing.Point(60, 539);
-            this.RubyPictureBox.Name = "RubyPictureBox";
-            this.RubyPictureBox.Size = new System.Drawing.Size(74, 70);
-            this.RubyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.RubyPictureBox.TabIndex = 1;
-            this.RubyPictureBox.TabStop = false;
-            this.RubyPictureBox.Visible = false;
+            this.BulletPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.BulletPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("BulletPictureBox.Image")));
+            this.BulletPictureBox.Location = new System.Drawing.Point(65, 520);
+            this.BulletPictureBox.Name = "BulletPictureBox";
+            this.BulletPictureBox.Size = new System.Drawing.Size(74, 70);
+            this.BulletPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BulletPictureBox.TabIndex = 1;
+            this.BulletPictureBox.TabStop = false;
+            this.BulletPictureBox.Visible = false;
             // 
             // GroundPictureBox
             // 
@@ -119,7 +119,7 @@
             // 
             this.Slingshot2PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Slingshot2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Slingshot2PictureBox.Image")));
-            this.Slingshot2PictureBox.Location = new System.Drawing.Point(77, 432);
+            this.Slingshot2PictureBox.Location = new System.Drawing.Point(77, 411);
             this.Slingshot2PictureBox.Name = "Slingshot2PictureBox";
             this.Slingshot2PictureBox.Size = new System.Drawing.Size(145, 217);
             this.Slingshot2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,7 +142,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.AreaSpawnPanel);
-            this.Controls.Add(this.RubyPictureBox);
+            this.Controls.Add(this.BulletPictureBox);
             this.Controls.Add(this.GridPictureBox);
             this.Controls.Add(this.GroundPictureBox);
             this.Controls.Add(this.Slingshot1PictureBox);
@@ -153,7 +153,7 @@
             this.Text = "Form2";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.Slingshot1PictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RubyPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BulletPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroundPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tree1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tree2PictureBox)).EndInit();
@@ -166,7 +166,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox Slingshot1PictureBox;
-        private System.Windows.Forms.PictureBox RubyPictureBox;
+        private System.Windows.Forms.PictureBox BulletPictureBox;
         private System.Windows.Forms.PictureBox GroundPictureBox;
         private System.Windows.Forms.PictureBox Tree1PictureBox;
         private System.Windows.Forms.PictureBox Tree2PictureBox;
