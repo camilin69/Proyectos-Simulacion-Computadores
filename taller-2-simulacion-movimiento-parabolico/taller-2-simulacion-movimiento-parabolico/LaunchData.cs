@@ -13,6 +13,7 @@ namespace taller_2_simulacion_movimiento_parabolico
         public double TotalTime { get; set; }
         public double MaxHeight { get; set; }
         public double MaxVelocity { get; set; }
+
         public double LaunchAngle { get; set; }
 
         // Nuevas propiedades para los cálculos
@@ -32,6 +33,10 @@ namespace taller_2_simulacion_movimiento_parabolico
         public List<Point> TrajectoryPoints { get; set; }
         public int DeltaX { get; set; }
         public int DeltaY { get; set; }
+
+        public List<double> TimePoints { get; set; }
+        public List<double> VelocityXPoints { get; set; }
+        public List<double> VelocityYPoints { get; set; }
 
         public LaunchData()
         {
