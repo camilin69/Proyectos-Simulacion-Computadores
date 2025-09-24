@@ -195,6 +195,7 @@ namespace taller_2_simulacion_movimiento_parabolico
                     {
                         BulletPictureBox.Location = new Point(newX, newY);
                     }
+                    DeltaXYLabel.Text = $"ΔX: {deltaX} px, ΔY: {deltaY} px";
                 }
                 
             }
@@ -213,6 +214,7 @@ namespace taller_2_simulacion_movimiento_parabolico
                 velocityX = deltaX;
                 velocityY = deltaY;
                 t = 0;
+                DeltaXYLabel.Text = $"ΔX: {deltaX} px, ΔY: {deltaY} px";
 
                 // Resetear variables de rebote
                 bounceCount = 0;
@@ -439,13 +441,11 @@ namespace taller_2_simulacion_movimiento_parabolico
             }
 
             // Calcular velocidad actual
-            double currentVelocityX = velocityX;
-            double currentVelocityY = velocityY - (gravity * t);
-            double currentTotalVelocity = Math.Sqrt(currentVelocityX * currentVelocityX + currentVelocityY * currentVelocityY);
+            double currentTotalVelocity = Math.Sqrt(velocityX * velocityX + velocityY * velocityY);
 
             // Guardar velocidad final para el último cálculo
-            finalVelocityX = currentVelocityX;
-            finalVelocityY = currentVelocityY;
+            finalVelocityX = velocityX;
+            finalVelocityY = velocityY;
 
             // Actualizar velocidad máxima
             if (currentTotalVelocity > maxVelocity)
@@ -459,8 +459,8 @@ namespace taller_2_simulacion_movimiento_parabolico
             // Velocidad inicial (VI)
             launch.VIX = deltaX;
             launch.VIY = deltaY;
-            launch.VIMagnitude = Math.Sqrt(velocityX * velocityX + velocityY * velocityY);
-            launch.VIAngle = Math.Atan2(velocityY, velocityX) * (180 / Math.PI);
+            launch.VIMagnitude = Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+            launch.VIAngle = Math.Atan2(deltaY, deltaX) * (180 / Math.PI);
 
             // Velocidad final (VF) - en el último momento antes de detenerse
             launch.VFX = finalVelocityX;
@@ -500,10 +500,10 @@ namespace taller_2_simulacion_movimiento_parabolico
                 // Nuevos datos calculados
                 MaxX = maxX,
                 MaxY = maxY,
-                VIX = velocityX,
-                VIY = velocityY,
-                VIMagnitude = Math.Sqrt(velocityX * velocityX + velocityY * velocityY),
-                VIAngle = Math.Atan2(velocityY, velocityX) * (180 / Math.PI),
+                VIX = deltaX,
+                VIY = deltaY,
+                VIMagnitude = Math.Sqrt(deltaX * deltaX + deltaY * deltaY),
+                VIAngle = Math.Atan2(deltaY, deltaX) * (180 / Math.PI),
                 VFX = finalVelocityX,
                 VFY = finalVelocityY,
                 VFMagnitude = Math.Sqrt(finalVelocityX * finalVelocityX + finalVelocityY * finalVelocityY),
@@ -520,8 +520,8 @@ namespace taller_2_simulacion_movimiento_parabolico
                 $"{maxY:F2} px",                                  // max Y
                 $"{maxVelocity:F2} px/s",                         // Velocidad (magnitud) máxima
                 $"{currentLaunch.VelocityAngleAtMaxHeight:F1}°",  // Ángulo de la velocidad respecto al eje x (en máxima altura)
-                $"{velocityX:F2} px/s",                           // VI X
-                $"{velocityY:F2} px/s",                           // VI Y
+                $"{deltaX:F2} px/s",                           // VI X
+                $"{deltaY:F2} px/s",                           // VI Y
                 $"{currentLaunch.VIMagnitude:F2} px/s",           // VI magnitud
                 $"{currentLaunch.VIAngle:F1}°",                   // VI Ángulo
                 $"{finalVelocityX:F2} px/s",                      // VF X
