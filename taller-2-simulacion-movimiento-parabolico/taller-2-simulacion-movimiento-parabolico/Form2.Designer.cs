@@ -50,7 +50,7 @@
             // 
             this.Slingshot1PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Slingshot1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Slingshot1PictureBox.Image")));
-            this.Slingshot1PictureBox.Location = new System.Drawing.Point(77, 411);
+            this.Slingshot1PictureBox.Location = new System.Drawing.Point(33, 448);
             this.Slingshot1PictureBox.Name = "Slingshot1PictureBox";
             this.Slingshot1PictureBox.Size = new System.Drawing.Size(145, 217);
             this.Slingshot1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -83,7 +83,7 @@
             // 
             this.Tree1PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Tree1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Tree1PictureBox.Image")));
-            this.Tree1PictureBox.Location = new System.Drawing.Point(424, 434);
+            this.Tree1PictureBox.Location = new System.Drawing.Point(389, 509);
             this.Tree1PictureBox.Name = "Tree1PictureBox";
             this.Tree1PictureBox.Size = new System.Drawing.Size(146, 156);
             this.Tree1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,9 +95,9 @@
             // 
             this.Tree2PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Tree2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Tree2PictureBox.Image")));
-            this.Tree2PictureBox.Location = new System.Drawing.Point(552, 233);
+            this.Tree2PictureBox.Location = new System.Drawing.Point(541, 289);
             this.Tree2PictureBox.Name = "Tree2PictureBox";
-            this.Tree2PictureBox.Size = new System.Drawing.Size(169, 376);
+            this.Tree2PictureBox.Size = new System.Drawing.Size(196, 376);
             this.Tree2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Tree2PictureBox.TabIndex = 4;
             this.Tree2PictureBox.TabStop = false;
@@ -119,7 +119,7 @@
             // 
             this.Slingshot2PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Slingshot2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Slingshot2PictureBox.Image")));
-            this.Slingshot2PictureBox.Location = new System.Drawing.Point(77, 411);
+            this.Slingshot2PictureBox.Location = new System.Drawing.Point(33, 448);
             this.Slingshot2PictureBox.Name = "Slingshot2PictureBox";
             this.Slingshot2PictureBox.Size = new System.Drawing.Size(145, 217);
             this.Slingshot2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

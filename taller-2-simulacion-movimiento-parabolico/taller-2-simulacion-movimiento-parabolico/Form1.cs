@@ -81,12 +81,18 @@ namespace taller_2_simulacion_movimiento_parabolico
             }
             else { 
                 InfoTabControl.Visible = true;
-                DataButton.BackColor = Color.Violet;
+                DataButton.BackColor = Color.LawnGreen;
             }
         }
         private void LaunchManuallyButton_Click(object sender, EventArgs e)
         {
-            if(stopped) return;
+            if (stopped || isExploding || timer1.Enabled) { 
+                MessageBox.Show("Presione reinciar para ejecutar otro lanzamiento",
+                               "Lanzamiento en espera",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                return;
+            }
             if (IsValidDeltaValue(LaunchManualDXTextBox.Text) && IsValidDeltaValue(LaunchManualDYTextBox.Text))
             {
                 int dx = int.Parse(LaunchManualDXTextBox.Text);
@@ -119,7 +125,6 @@ namespace taller_2_simulacion_movimiento_parabolico
         }
         private void LaunchWithManualValues(int dx, int dy)
         {
-            if (isExploding || timer1.Enabled) return;
 
             BulletPictureBox.Visible = true;
             BulletPictureBox.Location = backForm.BulletLocation;
@@ -143,7 +148,7 @@ namespace taller_2_simulacion_movimiento_parabolico
             ClearDataLists();
             ResetLaunchVariables();
 
-            DeltaXYLabel.Text = $"ΔX: {deltaX} px, ΔY: {deltaY} px (Manual)";
+            DeltaXYLabel.Text = $"ΔX: {deltaX} px, ΔY: {deltaY} px";
 
             timer1.Start();
 
@@ -209,8 +214,6 @@ namespace taller_2_simulacion_movimiento_parabolico
             if (stopped) return;
             if (e.Button == MouseButtons.Left && !isDragging)
             {
-                Slingshot1PictureBox.Visible = false;
-                Slingshot2PictureBox.Visible = true;
                 startMouseX = e.X;
                 startMouseY = e.Y;
                 isDragging = true;
@@ -244,8 +247,8 @@ namespace taller_2_simulacion_movimiento_parabolico
             if (stopped) return;
             if (e.Button == MouseButtons.Left)
             {
-                Slingshot1PictureBox.Visible = true;
-                Slingshot2PictureBox.Visible = false;
+                Slingshot1PictureBox.Visible = false;
+                Slingshot2PictureBox.Visible = true;
                 if (deltaX > 110) deltaX = 110;
                 if (deltaY > 110) deltaY = 110;
                 trajectoryX0 = deltaX * -1;
@@ -273,6 +276,12 @@ namespace taller_2_simulacion_movimiento_parabolico
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (t > 2 && bounceCount == 0)
+            {
+                Slingshot1PictureBox.Visible = true;
+                Slingshot2PictureBox.Visible = false;
+            }
+            
             double xt = velocityX * t + trajectoryX0;
             double yt = (-0.5 * gravity * t * t) + (velocityY * t) + trajectoryY0;
 
@@ -576,7 +585,7 @@ namespace taller_2_simulacion_movimiento_parabolico
                 for (int i = 0; i < trajectoryPoints.Count - 1; i++)
                 {
                     int alpha = 255 - (int)((i / (float)trajectoryPoints.Count) * 200);
-                    trajectoryPen.Color = Color.FromArgb(alpha, Color.Red);
+                    trajectoryPen.Color = Color.FromArgb(alpha, Color.Yellow);
                     e.Graphics.DrawLine(trajectoryPen, trajectoryPoints[i], trajectoryPoints[i + 1]);
                 }
             }
@@ -586,7 +595,7 @@ namespace taller_2_simulacion_movimiento_parabolico
                 for (int i = 0; i < displayedTrajectory.Count - 1; i++)
                 {
                     int alpha = 200 - (int)((i / (float)displayedTrajectory.Count) * 150);
-                    savedTrajectoryPen.Color = Color.FromArgb(alpha, Color.Blue);
+                    savedTrajectoryPen.Color = Color.FromArgb(alpha, Color.LawnGreen);
                     e.Graphics.DrawLine(savedTrajectoryPen, displayedTrajectory[i], displayedTrajectory[i + 1]);
                 }
 
@@ -601,6 +610,7 @@ namespace taller_2_simulacion_movimiento_parabolico
         {
             displayedTrajectory = new List<Point>(launch.TrajectoryPoints);
             showingSavedTrajectory = true;
+            DeltaXYLabel.Text = $"ΔX: {launch.DeltaX} px, ΔY: {launch.DeltaY} px";
             UpdateChartsWithLaunchData(launch);
             this.Invalidate();
         }
@@ -614,13 +624,21 @@ namespace taller_2_simulacion_movimiento_parabolico
 
             Point explosionCenter = new Point(
                 TargetPictureBox.Location.X + TargetPictureBox.Width / 2 - ExplosionPictureBox.Width / 2,
-                TargetPictureBox.Location.Y + TargetPictureBox.Height / 2 - ExplosionPictureBox.Height / 2
+                TargetPictureBox.Location.Y + TargetPictureBox.Height / 2 - ExplosionPictureBox.Height / 2 + 30
             );
             ExplosionPictureBox.Location = explosionCenter;
 
             ExplosionPictureBox.Visible = true;
             isExploding = true;
             explosionFrameCount = 0;
+
+            Point targetHitCenter = new Point(
+                TargetPictureBox.Location.X + TargetPictureBox.Width / 2 - TargetHitPictureBox.Width / 2,
+                TargetPictureBox.Location.Y + TargetPictureBox.Height / 2 - TargetHitPictureBox.Height / 2
+            );
+            TargetHitPictureBox.Location = targetHitCenter;
+
+            TargetHitPictureBox.Visible = true;
 
             if (!timer2.Enabled)
             {
@@ -636,6 +654,7 @@ namespace taller_2_simulacion_movimiento_parabolico
             explosionFrameCount = 0;
             ExplosionPictureBox.Visible = false;
             TargetPictureBox.Visible = true;
+            TargetHitPictureBox.Visible = false;
             timer2.Stop();
 
             BulletPictureBox.Visible = true;
@@ -767,7 +786,14 @@ namespace taller_2_simulacion_movimiento_parabolico
         }
         private void HitTargetButton_Click(object sender, EventArgs e)
         {
-            if (isExploding || timer1.Enabled || stopped) return;
+            if (isExploding || timer1.Enabled || stopped)
+            {
+                MessageBox.Show("Presione reinciar para ejecutar otro lanzamiento",
+                               "Lanzamiento en espera",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                return;
+            }
             int solutions = 0;
             initialBulletX = backForm.BulletLocation.X;
             initialBulletY = backForm.BulletLocation.Y;
