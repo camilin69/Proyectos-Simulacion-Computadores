@@ -62,9 +62,9 @@
             // 
             this.BulletPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.BulletPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("BulletPictureBox.Image")));
-            this.BulletPictureBox.Location = new System.Drawing.Point(65, 520);
+            this.BulletPictureBox.Location = new System.Drawing.Point(77, 542);
             this.BulletPictureBox.Name = "BulletPictureBox";
-            this.BulletPictureBox.Size = new System.Drawing.Size(74, 70);
+            this.BulletPictureBox.Size = new System.Drawing.Size(62, 34);
             this.BulletPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BulletPictureBox.TabIndex = 1;
             this.BulletPictureBox.TabStop = false;
@@ -83,9 +83,9 @@
             // 
             this.Tree1PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Tree1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Tree1PictureBox.Image")));
-            this.Tree1PictureBox.Location = new System.Drawing.Point(424, 466);
+            this.Tree1PictureBox.Location = new System.Drawing.Point(424, 434);
             this.Tree1PictureBox.Name = "Tree1PictureBox";
-            this.Tree1PictureBox.Size = new System.Drawing.Size(146, 124);
+            this.Tree1PictureBox.Size = new System.Drawing.Size(146, 156);
             this.Tree1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Tree1PictureBox.TabIndex = 3;
             this.Tree1PictureBox.TabStop = false;
@@ -95,9 +95,9 @@
             // 
             this.Tree2PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Tree2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Tree2PictureBox.Image")));
-            this.Tree2PictureBox.Location = new System.Drawing.Point(552, 376);
+            this.Tree2PictureBox.Location = new System.Drawing.Point(552, 233);
             this.Tree2PictureBox.Name = "Tree2PictureBox";
-            this.Tree2PictureBox.Size = new System.Drawing.Size(166, 233);
+            this.Tree2PictureBox.Size = new System.Drawing.Size(169, 376);
             this.Tree2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Tree2PictureBox.TabIndex = 4;
             this.Tree2PictureBox.TabStop = false;
@@ -107,9 +107,9 @@
             // 
             this.GridPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.GridPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("GridPictureBox.Image")));
-            this.GridPictureBox.Location = new System.Drawing.Point(1113, -5);
+            this.GridPictureBox.Location = new System.Drawing.Point(1149, -5);
             this.GridPictureBox.Name = "GridPictureBox";
-            this.GridPictureBox.Size = new System.Drawing.Size(73, 642);
+            this.GridPictureBox.Size = new System.Drawing.Size(37, 642);
             this.GridPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.GridPictureBox.TabIndex = 5;
             this.GridPictureBox.TabStop = false;
@@ -129,9 +129,9 @@
             // 
             // AreaSpawnPanel
             // 
-            this.AreaSpawnPanel.Location = new System.Drawing.Point(727, 57);
+            this.AreaSpawnPanel.Location = new System.Drawing.Point(743, 30);
             this.AreaSpawnPanel.Name = "AreaSpawnPanel";
-            this.AreaSpawnPanel.Size = new System.Drawing.Size(380, 400);
+            this.AreaSpawnPanel.Size = new System.Drawing.Size(364, 598);
             this.AreaSpawnPanel.TabIndex = 26;
             this.AreaSpawnPanel.Visible = false;
             // 
@@ -142,12 +142,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.AreaSpawnPanel);
-            this.Controls.Add(this.BulletPictureBox);
             this.Controls.Add(this.GridPictureBox);
             this.Controls.Add(this.GroundPictureBox);
-            this.Controls.Add(this.Slingshot1PictureBox);
             this.Controls.Add(this.Tree2PictureBox);
             this.Controls.Add(this.Tree1PictureBox);
+            this.Controls.Add(this.BulletPictureBox);
+            this.Controls.Add(this.Slingshot1PictureBox);
             this.Controls.Add(this.Slingshot2PictureBox);
             this.Name = "Form2";
             this.Text = "Form2";
